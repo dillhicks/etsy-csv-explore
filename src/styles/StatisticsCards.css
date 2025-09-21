@@ -1,0 +1,113 @@
+/* Stats Cards */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-md);
+  margin: var(--space-xl) 0;
+}
+
+.stat-card {
+  background: var(--background);
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-light);
+  text-align: center;
+  transition: all var(--transition-fast);
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-color);
+}
+
+.stat-number {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: #c2410c;
+  margin-bottom: var(--space-xs);
+}
+
+.stat-number.enhanced-visibility {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.stat-label {
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+}
+
+/* Enhanced Interactive Elements for Statistics Cards */
+.stat-card {
+  cursor: pointer;
+}
+
+.stat-card:hover .stat-number {
+  color: var(--text-primary);
+  transform: scale(1.05);
+  transition: all var(--transition-fast);
+}
+
+.stat-card:hover .stat-label {
+  color: var(--text-primary);
+}
+
+/* Responsive Design for Statistics Cards */
+@media (min-width: 1200px) {
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-lg);
+  }
+}
+
+@media (min-width: 1600px) {
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-xl);
+  }
+}
+
+@media (max-width: 768px) {
+  /* Better chart responsiveness */
+  .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-sm);
+  }
+
+  .stat-card {
+    padding: var(--space-md);
+  }
+
+  .stat-number {
+    font-size: var(--font-size-xl);
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+
+  .stat-card {
+    padding: var(--space-sm);
+  }
+}
+
+/* Touch device optimizations for statistics cards */
+@media (hover: none) and (pointer: coarse) {
+  .stat-card:hover {
+    transform: none;
+  }
+}
+
+/* Performance optimizations for statistics cards */
+.stat-card {
+  will-change: transform;
+}
+
+.stat-card:hover {
+  will-change: transform, box-shadow;
+}

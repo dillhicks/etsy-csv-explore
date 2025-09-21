@@ -1,0 +1,181 @@
+/* Table View Container */
+.table-view-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+/* Modern Table */
+.items-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--background);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid #c2410c;
+}
+
+.items-table th {
+    background: var(--background-secondary);
+    color: #c2410c;
+    font-weight: 600;
+    padding: var(--space-md) var(--space-lg);
+    text-align: left;
+    font-size: var(--font-size-sm);
+    border-bottom: 2px solid #c2410c;
+  }
+
+.items-table th:first-child {
+  border-top-left-radius: var(--radius-lg);
+}
+
+.items-table th:last-child {
+  border-top-right-radius: var(--radius-lg);
+}
+
+.items-table td {
+    padding: var(--space-md) var(--space-lg);
+    border-bottom: 1px solid rgba(194, 65, 12, 0.1);
+    vertical-align: top;
+    transition: all var(--transition-fast);
+    position: relative;
+  }
+
+.items-table tr {
+  transition: all var(--transition-fast);
+}
+
+.items-table tr:hover {
+   background-color: rgba(194, 65, 12, 0.05);
+   transform: scale(1.01);
+   border-left: 3px solid #c2410c;
+ }
+
+.items-table tr:last-child td {
+  border-bottom: none;
+}
+
+.items-table tr:last-child td:first-child {
+  border-bottom-left-radius: var(--radius-lg);
+}
+
+.items-table td:first-child {
+  font-weight: 600;
+  color: #c2410c;
+}
+
+.items-table tr:last-child td:last-child {
+  border-bottom-right-radius: var(--radius-lg);
+}
+
+.items-table ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.items-table li {
+  padding: var(--space-xs) 0;
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.items-table li strong {
+  color: #c2410c;
+  font-weight: 600;
+}
+
+.items-table li:not(:last-child) {
+  border-bottom: 1px solid var(--border-light);
+  margin-bottom: var(--space-xs);
+}
+
+/* Enhanced table row interactions */
+.items-table tr {
+  cursor: pointer;
+}
+
+.items-table tr:hover .progress-fill {
+   background: var(--primary-light);
+ }
+
+/* Interactive variation badges */
+.items-table li {
+  position: relative;
+  transition: all var(--transition-fast);
+}
+
+.items-table li:hover {
+  transform: translateX(4px);
+  background: rgba(194, 65, 12, 0.1);
+  border-radius: var(--radius-sm);
+}
+
+/* Responsive Design for Table */
+@media (max-width: 768px) {
+  .items-table {
+    font-size: var(--font-size-sm);
+  }
+
+  .items-table th,
+  .items-table td {
+    padding: var(--space-sm) var(--space-md);
+  }
+}
+
+@media (max-width: 480px) {
+  /* Make table more touch-friendly */
+  .items-table th,
+  .items-table td {
+    padding: var(--space-md);
+  }
+
+  /* Larger touch targets for variations */
+  .items-table li {
+    padding: var(--space-sm);
+    margin-bottom: var(--space-sm);
+  }
+}
+
+/* Touch device optimizations for table */
+@media (hover: none) and (pointer: coarse) {
+  .items-table tr:hover {
+    transform: none;
+    background-color: var(--background-secondary);
+  }
+}
+
+/* High contrast mode support for table */
+@media (prefers-contrast: high) {
+  .items-table th,
+  .items-table td {
+    border-width: 2px;
+  }
+}
+
+/* Print styles for table */
+@media print {
+  .items-table {
+    box-shadow: none;
+    border: 1px solid #ffffff;
+  }
+
+  .items-table th,
+  .items-table td {
+    border: 1px solid #ffffff;
+  }
+}
+
+/* Performance optimizations for table */
+.items-table tr {
+  will-change: transform;
+}
+
+.items-table tr:hover {
+  will-change: transform, box-shadow;
+}

@@ -1,0 +1,228 @@
+/* Empty State Styles */
+.empty-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: var(--space-2xl);
+  background: var(--background-secondary);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-light);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  margin: var(--space-xl) 0;
+}
+
+.empty-state-content {
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+}
+
+.empty-state-icon {
+  margin: 0 auto 2rem auto;
+  width: 80px;
+  height: 80px;
+  background: var(--background-tertiary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--border-light);
+  transition: all var(--transition-normal);
+}
+
+.empty-state-icon:hover {
+  transform: scale(1.05);
+  border-color: var(--primary-light);
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.15);
+}
+
+.empty-state-icon svg {
+  color: #e5e7eb;
+  transition: all var(--transition-normal);
+}
+
+.empty-state-title {
+  font-size: var(--font-size-2xl);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-lg) 0;
+  line-height: 1.2;
+}
+
+.empty-state-description {
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0 0 var(--space-2xl) 0;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.empty-state-button {
+  margin: 0 0 var(--space-2xl) 0;
+  padding: var(--space-md) var(--space-2xl);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.2);
+  transition: all var(--transition-normal);
+  background: var(--primary-light);
+  color: white;
+  border: 1px solid var(--primary-light);
+}
+
+.empty-state-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+  background: rgba(59, 130, 246, 0.9);
+  border-color: rgba(59, 130, 246, 0.9);
+}
+
+.empty-state-features {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  align-items: center;
+  margin-top: var(--space-xl);
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  padding: var(--space-xs) var(--space-md);
+  background: var(--background-tertiary);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+  transition: all var(--transition-fast);
+  min-width: 250px;
+}
+
+.feature-item:hover {
+  background: var(--background);
+  border-color: var(--primary-light);
+  transform: translateX(4px);
+}
+
+.feature-item svg {
+  flex-shrink: 0;
+  color: var(--success-color) !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .empty-state {
+    min-height: 50vh;
+    padding: var(--space-lg);
+    margin: var(--space-lg) 0;
+  }
+
+  .empty-state-content {
+    max-width: 100%;
+  }
+
+  .empty-state-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: var(--space-lg);
+  }
+
+  .empty-state-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .empty-state-title {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-md);
+  }
+
+  .empty-state-description {
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--space-lg);
+  }
+
+  .empty-state-button {
+    padding: var(--space-sm) var(--space-lg);
+    font-size: var(--font-size-sm);
+  }
+
+  .feature-item {
+    min-width: auto;
+    font-size: var(--font-size-xs);
+    padding: var(--space-xs) var(--space-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .empty-state {
+    padding: var(--space-md);
+  }
+
+  .empty-state-title {
+    font-size: var(--font-size-lg);
+  }
+
+  .empty-state-description {
+    font-size: var(--font-size-xs);
+  }
+
+  .feature-item {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-xs);
+    padding: var(--space-sm);
+  }
+
+  .feature-item svg {
+    margin: 0;
+  }
+}
+
+/* Animation for empty state appearance */
+.empty-state {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .empty-state {
+    animation: none;
+  }
+
+  .empty-state-icon:hover,
+  .empty-state-button:hover,
+  .feature-item:hover {
+    transform: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .empty-state {
+    border-width: 2px;
+  }
+
+  .empty-state-icon {
+    border-width: 3px;
+  }
+
+  .feature-item {
+    border-width: 2px;
+  }
+}

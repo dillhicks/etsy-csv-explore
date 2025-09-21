@@ -1,0 +1,299 @@
+/* Toolbar Styles */
+.toolbar {
+  background: var(--background);
+  border-bottom: 1px solid var(--border-light);
+  padding: var(--space-md) var(--space-lg) var(--space-md);
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999 !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  /* Ensure fixed positioning works reliably */
+  transform: translateZ(0);
+  will-change: transform;
+  /* Prevent any parent container interference */
+  contain: layout style paint;
+  /* Additional safeguards for fixed positioning */
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  /* Ensure it's always positioned relative to viewport */
+  position: fixed !important;
+  /* Create new stacking context to prevent interference */
+  isolation: isolate;
+  /* Minimum height for better touch targets */
+  min-height: 64px;
+}
+
+.toolbar-content {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  max-width: 100%;
+}
+
+.hamburger-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  background: var(--background-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  padding: 0;
+  position: relative;
+  z-index: 10000 !important;
+  /* Enhanced accessibility */
+  -webkit-tap-highlight-color: transparent;
+  /* Better focus indication */
+  box-shadow: 0 0 0 0 rgba(241, 100, 30, 0);
+  transition: box-shadow 0.15s ease-in-out;
+}
+
+.hamburger-button:hover {
+  background: var(--background-tertiary);
+  border-color: var(--primary-color);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.hamburger-button.active {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.hamburger-button.active .hamburger-line {
+  background: white;
+}
+
+.hamburger-line {
+  width: 20px;
+  height: 2px;
+  background: var(--text-primary);
+  transition: all var(--transition-fast);
+  border-radius: 1px;
+}
+
+.hamburger-button.active .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger-button.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-button.active .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.hamburger-line:not(:last-child) {
+  margin-bottom: 4px;
+}
+
+.toolbar-title {
+  flex: 1;
+  text-align: center;
+}
+
+.toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.toolbar-title h1 {
+  margin: 0;
+  padding: 0;
+  color: var(--text-primary);
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  line-height: 1;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  /* Ensure text is always readable */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.toolbar-title p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: var(--font-size-xs);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.3;
+}
+
+/* Responsive Design for Toolbar */
+@media (max-width: 768px) {
+  .toolbar {
+    padding: var(--space-lg) var(--space-lg);
+    /* Ensure fixed positioning works on mobile */
+    position: fixed;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    /* Adjust min-height for mobile */
+    min-height: 72px;
+  }
+
+  .toolbar-content {
+    gap: var(--space-md);
+  }
+
+  .hamburger-button {
+    width: 48px;
+    height: 48px;
+  }
+
+  .hamburger-line {
+    width: 18px;
+  }
+
+  .toolbar-title h1 {
+    font-size: var(--font-size-xl);
+  }
+
+  .toolbar-title p {
+    font-size: var(--font-size-xs);
+    padding: 0 var(--space-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .toolbar {
+    padding: var(--space-md) var(--space-md);
+    /* Ensure fixed positioning works on very small screens */
+    position: fixed;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    /* Adjust min-height for small screens */
+    min-height: 68px;
+  }
+
+  .toolbar-content {
+    gap: var(--space-sm);
+  }
+
+  .hamburger-button {
+    width: 44px;
+    height: 44px;
+  }
+
+  .hamburger-line {
+    width: 16px;
+  }
+
+  .toolbar-title h1 {
+    font-size: var(--font-size-lg);
+  }
+
+  .toolbar-title p {
+    display: none; /* Hide description on very small screens */
+  }
+}
+
+/* Focus states for accessibility */
+.hamburger-button:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(241, 100, 30, 0.2);
+}
+
+.hamburger-button:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(241, 100, 30, 0.2);
+}
+
+/* Additional fixed positioning safeguards */
+.toolbar {
+  /* Fallback for browsers that don't support backdrop-filter */
+  background: var(--background);
+  /* Ensure the toolbar is always on top */
+  z-index: 1000;
+  /* Prevent any layout shifts */
+  contain: layout style paint;
+  /* Optimize for fixed positioning */
+  will-change: transform;
+  /* Create new stacking context */
+  isolation: isolate;
+}
+
+/* Ensure toolbar visibility during page load */
+body:not(.loaded) .toolbar {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Anonymous Mode Toggle */
+.anonymous-mode-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-sm);
+  background: var(--background-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--text-secondary);
+  min-height: 36px;
+}
+
+.anonymous-mode-toggle:hover {
+  background: var(--background-tertiary);
+  border-color: var(--primary-color);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.anonymous-mode-toggle.active {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+}
+
+.anonymous-mode-toggle:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(241, 100, 30, 0.2);
+}
+
+.anonymous-mode-toggle svg {
+  transition: transform var(--transition-fast);
+}
+
+.anonymous-mode-toggle.active svg {
+  transform: scale(1.1);
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .hamburger-button:hover {
+    transform: none;
+  }
+
+  .hamburger-button:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
+  }
+
+  .anonymous-mode-toggle:hover {
+    transform: none;
+  }
+
+  .anonymous-mode-toggle:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
+  }
+}
