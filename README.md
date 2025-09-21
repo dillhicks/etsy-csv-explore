@@ -2,9 +2,12 @@
 
 A web application for analyzing and visualizing Etsy sales data from CSV exports. Built with React, TypeScript, and Vite, this tool helps to analyze sales patterns and product performance.
 
+**Live Demo**: [https://www.etsycsv.dildesigns.com/](https://www.etsycsv.dildesigns.com/)
+
+
 ## Features
 
-Long story short, this does a few things and lets you visualize some things in ways that Etsy does not. 
+Long story short, this does a few things and lets you visualize some things in ways that Etsy. 
 
 - Lets you compare sales and revenue between different items in a graphical format
 - See which item variations are the most popular between all items
