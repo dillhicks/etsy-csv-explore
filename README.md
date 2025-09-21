@@ -4,25 +4,21 @@ A web application for analyzing and visualizing Etsy sales data from CSV exports
 
 ## Features
 
-Long story short, this does a few things that 
+Long story short, this does a few things and lets you visualize some things in ways that Etsy does not. 
 
-### Data Analysis
-- Upload and parse Etsy CSV files
-- View detailed sales data in organized tables
-- Analyze sales trends over time
-- Track product performance metrics
+- Lets you compare sales and revenue between different items in a graphical format
+- See which item variations are the most popular between all items
+- See what variations with a certain item are the most popular
+- See sales data over time for a particular item
 
-### Visualizations
-- Interactive charts and graphs
-- Statistics cards showing key metrics
-- Custom tooltips for detailed data points
-- Responsive design for various screen sizes
+Also gives you some nice things
+- See revenue and sales number for an item over a certain timer period
+- See the most consistent items based on the coefficient of variation of revenue
+- Anonymize the data if you want to take a screenshot (like I did here)
+- Fuse a sold order items CSV with the listings CSV to add images to the view.
 
-### Filtering and Organization
-- Filter data by date ranges, products, or other criteria
-- Sort and organize data for better insights
-- Search functionality for specific items
-- Collapsible sections for better navigation
+Yeah, you could just do some Excel stuff, but who the hell wants to do that?
+
 
 ## Screenshots
 
