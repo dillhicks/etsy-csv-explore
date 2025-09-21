@@ -87,6 +87,10 @@ src/
 └── App.tsx            # Main application component
 ```
 
+## License
+
+This project is licensed under the MIT + Commons Clause License Condition v1.0 - see the [LICENSE](LICENSE) file for details.
+
 ## Development
 
 ### Available Scripts
